@@ -1,18 +1,24 @@
+import { Col, Container, Row } from 'react-bootstrap';
 import styled from "styled-components";
-import {Row} from 'react-bootstrap';
-import {Col} from 'react-bootstrap';
 
-export const StyledRow = styled(Row)`
-background-color:#165315;
-color:white;
-font-size:16px;
-`;
+export const StyledContainer = styled(Container)({
+    backgroundColor: '#165315',
+    fontSize: '14px',
+    color: 'white',
+    maxWidth: '100%',
+    height: '33px',
+});
 
-export const StyledCol = styled(Col)`
-text-align:center;
-flex-grow:1;
+export const StyledRow = styled(Row)({
+    height: '100%',
+});
 
-`;
+export const StyledCol = styled(Col)({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+});
 
-
-
+export const StyledColCenter = styled(StyledCol)({
+    paddingLeft: '16.7%',
+});
