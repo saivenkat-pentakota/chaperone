@@ -7,110 +7,152 @@ import FilterComponent from "../Filter/Filter";
 import Product from "../Product/Product";
 import { ProductDetails } from "../Product/Product.props";
 import { StyledProductContainer } from "./Products.style";
+import { useState } from "react";
 
 export default function Products() {
+  const defaultproducts: ProductDetails[] = [
+    {
+      productId: "p01",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image1,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p02",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image2,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p03",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image3,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p04",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image1,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p05",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image2,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p06",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image3,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p07",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image1,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p08",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image2,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+    {
+      productId: "p09",
+      description: "Indore Palnt, Low Maintainance",
+      ImageUrl: image3,
+      productName: "Monsterra",
+      actualCost: 350,
+      currentCost: 299,
+      isWhishListed: false,
+      noOfItemsAddedToCart: 0,
+      ratings: 4.9,
+      rentOnAdded: false,
+    },
+  ];
 
-    const products: ProductDetails[] = [
-        {
-            productId:'p01',
-            description: 'Indore Palnt, Low Maintainance',
-            ImageUrl: image1,
-            productName: 'Monsterra',
-            actualCost: 350,
-            currentCost: 299,
-            isWhishListed: false,
-            noOfItemsAddedToCart: 0,
-            ratings: 4.9,
-        },
-        {
-            productId:'p02',
-            description: 'Indore Palnt, Low Maintainance',
-            ImageUrl: image2,
-            productName: 'Monsterra',
-            actualCost: 350,
-            currentCost: 299,
-            isWhishListed: false,
-            noOfItemsAddedToCart: 0,
-            ratings: 4.9,
-        },
-        {
-            productId:'p03',
-            description: 'Indore Palnt, Low Maintainance',
-            ImageUrl: image3,
-            productName: 'Monsterra',
-            actualCost: 350,
-            currentCost: 299,
-            isWhishListed: false,
-            noOfItemsAddedToCart: 0,
-            ratings: 4.9,
-        },
-        {
-            productId:'p04',
-            description: 'Indore Palnt, Low Maintainance',
-            ImageUrl: image1,
-            productName: 'Monsterra',
-            actualCost: 350,
-            currentCost: 299,
-            isWhishListed: false,
-            noOfItemsAddedToCart: 0,
-            ratings: 4.9,
-        },
-        {
-          productId:'p05',
-          description: 'Indore Palnt, Low Maintainance',
-          ImageUrl: image2,
-          productName: 'Monsterra',
-          actualCost: 350,
-          currentCost: 299,
-          isWhishListed: false,
-          noOfItemsAddedToCart: 0,
-          ratings: 4.9,
-      },
-      {
-          productId:'p06',
-          description: 'Indore Palnt, Low Maintainance',
-          ImageUrl: image3,
-          productName: 'Monsterra',
-          actualCost: 350,
-          currentCost: 299,
-          isWhishListed: false,
-          noOfItemsAddedToCart: 0,
-          ratings: 4.9,
-      },
-       {
-            productId:'p07',
-            description: 'Indore Palnt, Low Maintainance',
-            ImageUrl: image1,
-            productName: 'Monsterra',
-            actualCost: 350,
-            currentCost: 299,
-            isWhishListed: false,
-            noOfItemsAddedToCart: 0,
-            ratings: 4.9,
-        },
-        {
-          productId:'p08',
-          description: 'Indore Palnt, Low Maintainance',
-          ImageUrl: image2,
-          productName: 'Monsterra',
-          actualCost: 350,
-          currentCost: 299,
-          isWhishListed: false,
-          noOfItemsAddedToCart: 0,
-          ratings: 4.9,
-      },
-      {
-          productId:'p09',
-          description: 'Indore Palnt, Low Maintainance',
-          ImageUrl: image3,
-          productName: 'Monsterra',
-          actualCost: 350,
-          currentCost: 299,
-          isWhishListed: false,
-          noOfItemsAddedToCart: 0,
-          ratings: 4.9,
-      },
-    ];
+  const [products, setProducts] = useState<ProductDetails[]>(defaultproducts);
+
+  const incrementQuantity = (productId: string, quantity: number) => {
+    const index = products?.findIndex(product => product.productId === productId);
+    const newProducts = [...products];
+    if(index >= 0){
+      products[index].noOfItemsAddedToCart = quantity;
+    }
+    setProducts(newProducts);
+  };
+
+  const decrementQuantity = (productId: string, quantity: number) => {
+    if(quantity < 0 ){
+      return;
+    }
+    const index = products?.findIndex(product => product.productId === productId);
+    const newProducts = [...products];
+    if(index >= 0){
+      newProducts[index].noOfItemsAddedToCart = quantity;
+    }
+    setProducts(newProducts);
+  };
+
+  const rentOnAdded = (productId: string, rentOnAdded: boolean) => {
+    const index = products?.findIndex(product => product.productId === productId);
+    const newProducts = [...products];
+    if(index >= 0){
+      newProducts[index].rentOnAdded = rentOnAdded;
+    }
+    setProducts(newProducts);
+  };
+
   return (
     <StyledProductContainer>
       <Row>
@@ -125,7 +167,12 @@ export default function Products() {
             </Col>
           </Row>
           <Row>
-            <Product products={products}/>
+            <Product 
+              products={products} 
+              decrementQuantity={decrementQuantity}
+              incrementQuantity={incrementQuantity}
+              rentOnAdded={rentOnAdded}
+            />
           </Row>
         </Col>
       </Row>

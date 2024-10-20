@@ -1,31 +1,38 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
+import { useState } from "react"; // Import useState
+import { Col, Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import wishlistIcon from "../../images/wishlist.png";
 import wishlistedIcon from "../../images/wishlisted.png";
 
 import { ProductProps } from "./Product.props";
 import {
-  StyledAddToCartButton,
-  StyledButton,
-  StyledBuyOnRentButton,
-  StyledContainer,
-  StyledImage,
-  StyledProductContainer,
-  StyledRow,
-  StyledWishlistRow,
+    StyledAddToCartButton,
+    StyledButton,
+    StyledBuyOnRentButton,
+    StyledContainer,
+    StyledImage,
+    StyledIncrementDecrementButton,
+    StyledProductContainer,
+    StyledRow,
+    StyledWishlistRow,
 } from "./Product.style";
 
-export default function Product(props: ProductProps) {
-  const navigate = useNavigate(); 
+export default function Product({
+  products,
+  decrementQuantity,
+  incrementQuantity,
+  rentOnAdded,
+}: ProductProps) {
+  const navigate = useNavigate();
 
   const handleViewProduct = () => {
-    navigate('/thankyou');
+    navigate("/thankyou");
   };
 
   return (
     <>
       <Row>
-        {props?.products?.map((productDetails) => (
+        {products?.map((productDetails) => (
           <Col xs={4} key={productDetails.productId}>
             <StyledProductContainer>
               <StyledContainer>
@@ -39,10 +46,15 @@ export default function Product(props: ProductProps) {
                   </span>
                 </StyledWishlistRow>
                 <StyledRow>
-                  <StyledImage src={productDetails.ImageUrl} alt={productDetails.productName} />
+                  <StyledImage
+                    src={productDetails.ImageUrl}
+                    alt={productDetails.productName}
+                  />
                 </StyledRow>
                 <Row>
-                  <StyledButton onClick={handleViewProduct}>View Product</StyledButton>
+                  <StyledButton onClick={handleViewProduct}>
+                    View Product
+                  </StyledButton>
                 </Row>
               </StyledContainer>
               <Container>
@@ -62,13 +74,51 @@ export default function Product(props: ProductProps) {
                   </Col>
                 </Row>
                 <Row>
-                  <Col>
+                  <Row>
                     <StyledAddToCartButton>
-                      <Row><button>-</button>Add to Cart<button>+</button></Row>
+                      <StyledIncrementDecrementButton
+                        disabled = {productDetails.noOfItemsAddedToCart < 0}
+                        onClick={() =>
+                          decrementQuantity(
+                            productDetails.productId,
+                            productDetails.noOfItemsAddedToCart - 1
+                          )
+                        }
+                      >
+                        -
+                      </StyledIncrementDecrementButton>
+                      <span style={{ margin: "0 10px", width:'90px'  }}>
+                        {productDetails.noOfItemsAddedToCart > 0
+                          ? productDetails.noOfItemsAddedToCart
+                          : "Add to Cart"}
+                      </span>
+                      <StyledIncrementDecrementButton
+                        onClick={() =>
+                          incrementQuantity(
+                            productDetails.productId,
+                            productDetails.noOfItemsAddedToCart + 1
+                          )
+                        }
+                      >
+                        +
+                      </StyledIncrementDecrementButton>
                     </StyledAddToCartButton>
-                  </Col>
+                  </Row>
                   <Col>
-                    <StyledBuyOnRentButton>Buy on Rent</StyledBuyOnRentButton>
+                    <StyledBuyOnRentButton
+                      onClick={() =>
+                        rentOnAdded(
+                          productDetails.productId,
+                          !productDetails.rentOnAdded
+                        )}
+                      style={
+                        productDetails.rentOnAdded
+                          ? { backgroundColor: "#f0f0f0", color: "#165315" }
+                          : {}
+                      }
+                    >
+                      {productDetails.rentOnAdded ? "Rent Added" : "Buy on Rent"}
+                    </StyledBuyOnRentButton>
                   </Col>
                 </Row>
               </Container>

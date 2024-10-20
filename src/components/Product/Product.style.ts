@@ -41,25 +41,38 @@ export const StyledProductContainer  = styled(Container)({
 });
 
 export const StyledAddToCartButton = styled('button')({
-    width:'100%',
-    height:'37px',
-    background:'#165315',
-    color:'white',
-    fontSize:'16px',
-    fontWeight:'500',
-    borderRadius:'5px',
-})
-
-export const StyledBuyOnRentButton = styled('button')({
-    width:'100%',
-    height:'37px',
-    color:'#144D14',
-    fontSize:'16px',
-    fontWeight:'500',
-    background:'transparent',
-    border:'1px solid #144D14',
-    borderRadius:'10px',
+    width: '100%',
+    height: '37px',
+    background: '#165315',
+    color: 'white',
+    fontSize: '16px',
+    fontWeight: '500',
+    borderRadius: '10px',
+    display: 'flex',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    padding: '0 5px',
+    border: 'none',
+    marginRight: '5px',
 });
 
+export const StyledIncrementDecrementButton = styled('button')({
+    background: 'none', 
+    border: 'none', 
+    color: 'white', 
+    fontSize: '16px',
+    fontWeight: '500', 
+    cursor: 'pointer', 
+    padding: '0 5px', 
+});
 
-
+export const StyledBuyOnRentButton = styled('button')({
+    width: '100%',
+    height: '37px',
+    color: '#144D14',
+    fontSize: '16px',
+    fontWeight: '500',
+    background: 'transparent',
+    border: '1px solid #144D14',
+    borderRadius: '10px',
+});
