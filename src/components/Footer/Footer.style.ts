@@ -9,12 +9,6 @@ export const StyledFooterContainer = styled('div')({
     backgroundColor: '#F0FFE5',
 });
 
-export const StyledRegistrationContainer = styled('div')({
-    display:'flex',
-    width: '100%',
-    backgroundColor: '#F0FFE5',
-});
-
 export const StyledContainer = styled(Container)({
     maxWidth: '1400px',
     fontSize:'16px',

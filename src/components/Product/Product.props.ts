@@ -16,5 +16,6 @@ export interface ProductProps{
     incrementQuantity: (productId: string, quantity: number) => void;
     decrementQuantity: (productId: string, quantity: number) => void;
     rentOnAdded: (productId: string, rentOnAdded: boolean) => void;
+    wishListProduct: (productId: string, isWhishListed: boolean) => void;
 
 }

@@ -5,6 +5,7 @@ import {
   StyledImage,
   StyledRow,
   ButtonContainer,
+  StyledButton,
 } from "./Nursery.style";
 import image1 from "../../images/nurseryimages/Ellipse 62.png";
 import image2 from "../../images/nurseryimages/Ellipse 63.png";
@@ -56,9 +57,9 @@ export default function Nursery() {
       <StyledRow>
         <Col md="auto">
           <ButtonContainer>
-            <Button onClick={handlePrev} disabled={currentIndex === 0}>
+            <StyledButton onClick={handlePrev} className={currentIndex === 0 ? 'disabledButton' : ''} disabled={currentIndex === 0}>
               &lt; 
-            </Button>
+            </StyledButton>
           </ButtonContainer>
         </Col>
         <Col>
@@ -73,12 +74,12 @@ export default function Nursery() {
         </Col>
         <Col md="auto">
           <ButtonContainer>
-            <Button
+            <StyledButton
               onClick={handleNext}
               disabled={currentIndex + itemsPerPage >= images.length}
             >
               &gt; 
-            </Button>
+            </StyledButton>
           </ButtonContainer>
         </Col>
       </StyledRow>

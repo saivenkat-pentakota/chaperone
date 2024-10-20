@@ -6,15 +6,17 @@ import wishlistedIcon from "../../images/wishlisted.png";
 
 import { ProductProps } from "./Product.props";
 import {
-    StyledAddToCartButton,
-    StyledButton,
-    StyledBuyOnRentButton,
-    StyledContainer,
-    StyledImage,
-    StyledIncrementDecrementButton,
-    StyledProductContainer,
-    StyledRow,
-    StyledWishlistRow,
+  StyledAddToCartButton,
+  StyledButton,
+  StyledBuyOnRentButton,
+  StyledContainer,
+  StyledImage,
+  StyledIncrementDecrementButton,
+  StyledProductContainer,
+  StyledRow,
+  StyledStar,
+  StyledUnStar,
+  StyledWishlistRow,
 } from "./Product.style";
 
 export default function Product({
@@ -22,6 +24,7 @@ export default function Product({
   decrementQuantity,
   incrementQuantity,
   rentOnAdded,
+  wishListProduct,
 }: ProductProps) {
   const navigate = useNavigate();
 
@@ -37,7 +40,15 @@ export default function Product({
             <StyledProductContainer>
               <StyledContainer>
                 <StyledWishlistRow>
-                  <span>
+                  <span
+                    role="button"
+                    onClick={() =>
+                      wishListProduct(
+                        productDetails.productId,
+                        !productDetails.isWhishListed
+                      )
+                    }
+                  >
                     {productDetails.isWhishListed ? (
                       <img src={wishlistedIcon} alt="Wishlisted" />
                     ) : (
@@ -64,20 +75,31 @@ export default function Product({
                 <Row>
                   <p>{productDetails.description}</p>
                 </Row>
-                <Row>{productDetails.ratings}</Row>
+                <Row>
+                  {[...Array(5)].map((x, i) => (
+                    <>
+                      {i < productDetails.ratings ? (
+                        <StyledStar>&#9733;</StyledStar>
+                      ) : (
+                        <StyledUnStar>&#9733;</StyledUnStar>
+                      )}
+                    </>
+                  ))}{" "}
+                  &nbsp; {productDetails.ratings}
+                </Row>
                 <Row>
                   <Col xs={2}>
-                    <p>{productDetails.actualCost}</p>
+                    <del>&#x20B9;{productDetails.actualCost}</del>
                   </Col>
                   <Col xs={2}>
-                    <h4>{productDetails.currentCost}</h4>
+                    <h4>&#x20B9;{productDetails.currentCost}</h4>
                   </Col>
                 </Row>
                 <Row>
                   <Row>
                     <StyledAddToCartButton>
                       <StyledIncrementDecrementButton
-                        disabled = {productDetails.noOfItemsAddedToCart < 0}
+                        disabled={productDetails.noOfItemsAddedToCart < 0}
                         onClick={() =>
                           decrementQuantity(
                             productDetails.productId,
@@ -87,7 +109,7 @@ export default function Product({
                       >
                         -
                       </StyledIncrementDecrementButton>
-                      <span style={{ margin: "0 10px", width:'90px'  }}>
+                      <span style={{ margin: "0 10px", width: "90px" }}>
                         {productDetails.noOfItemsAddedToCart > 0
                           ? productDetails.noOfItemsAddedToCart
                           : "Add to Cart"}
@@ -110,14 +132,17 @@ export default function Product({
                         rentOnAdded(
                           productDetails.productId,
                           !productDetails.rentOnAdded
-                        )}
+                        )
+                      }
                       style={
                         productDetails.rentOnAdded
                           ? { backgroundColor: "#f0f0f0", color: "#165315" }
                           : {}
                       }
                     >
-                      {productDetails.rentOnAdded ? "Rent Added" : "Buy on Rent"}
+                      {productDetails.rentOnAdded
+                        ? "Rent Added"
+                        : "Buy on Rent"}
                     </StyledBuyOnRentButton>
                   </Col>
                 </Row>

@@ -24,5 +24,17 @@ export const ButtonContainer = styled.div({
   justifyContent: "center",
   alignItems: "center",
   height: "100%",
-  
+  '.disabledButton': {
+    opacity: '.5',
+  }
+});
+
+export const StyledButton = styled('button')({
+  background: '#165315',
+  color: 'white',
+  padding: '10px',
+  borderRadius: '5px',
+  fontSize: '20px',
+  fontWeight: '500',
+  cursor: 'pointer',
 });

@@ -76,3 +76,16 @@ export const StyledBuyOnRentButton = styled('button')({
     border: '1px solid #144D14',
     borderRadius: '10px',
 });
+
+export const StyledStar = styled('p')({
+    fontSize: '25px',
+    color: '#FAD728',
+    position: 'relative',
+    top: '-8px',
+});
+
+export const StyledUnStar = styled('p')({
+    fontSize: '25px',
+    position: 'relative',
+    top: '-8px',
+});
