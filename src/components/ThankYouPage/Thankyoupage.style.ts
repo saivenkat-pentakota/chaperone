@@ -1,23 +1,27 @@
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import bg1 from '../../images/bg1.png'
+import bg2 from '../../images/bg2.png';
 
 export const StyledThankyoupageContainer = styled(Container)({
-    maxWidth:"1400px",
-    display:'flex',
-    alignItems:'center',
-    justifyContent:'center',
-    textAlign:'center',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
     width:'100%',
-    color:'#165315',
+    height:'100vh',
+    color: '#165315',
+
+  
 });
 
-export const StyledContainer  = styled('div')({
-    position: 'relative', 
-    height: '600px',
-    width: '450px',
-    padding: '10px',
+export const StyledContainer = styled('div')({
+    position: 'relative',
+    height:'650px',
+    width: '450px', 
+    padding: '20px',
     display: 'flex',
-    gap: '4%',
+    gap:'40px',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -29,7 +33,7 @@ export const StyledContainer  = styled('div')({
         fontWeight: '500',
     },
     h3: {
-        fontSize: '24px', 
+        fontSize: '24px',
         fontWeight: '700',
     },
     img: {
@@ -39,7 +43,13 @@ export const StyledContainer  = styled('div')({
     hr: {
         width: '100%',
     },
+
+    backgroundImage:`url(${bg1}),url(${bg2})`,
+    backgroundPosition:'bottom left,top right',
+    backgroundRepeat:'no-repeat,no-repeat',
+    backgroundSize: '250px 250px, 150px 550px',
 });
+
 
 export const StyledCloseButton = styled('button')({
     position: 'absolute',

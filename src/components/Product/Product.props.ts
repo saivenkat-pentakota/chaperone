@@ -1,4 +1,4 @@
-export interface ProductProps {
+export interface ProductDetails{
     ImageUrl?: string;
     isWhishListed?: boolean;
     productId?: string;
@@ -8,4 +8,8 @@ export interface ProductProps {
     actualCost?: number;
     currentCost?: number;
     noOfItemsAddedToCart?: number;    
+}
+
+export interface ProductProps{
+    products:ProductDetails[];
 }
